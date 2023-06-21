@@ -21,6 +21,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Win));
             this.Exit = new System.Windows.Forms.Button();
             this.LabelWin = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -58,11 +59,12 @@
             this.Controls.Add(this.LabelWin);
             this.Controls.Add(this.Exit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Win";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "You are Winner! - Tutgetch";
+            this.Text = "Tutgetch";
             this.ResumeLayout(false);
             this.PerformLayout();
 
