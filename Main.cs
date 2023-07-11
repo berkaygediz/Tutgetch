@@ -6,15 +6,13 @@ namespace Tutgetch
 {
     public partial class Main : Form
     {
+        int MoveCP;
+        int MapX;
+        int MapY;
         public Main()
         {
             InitializeComponent();
         }
-
-        int CP_Move;
-        int MX;
-        int MY;
-
         private void Exit_Click(object sender, EventArgs e)
         {
             Control.Stop();
@@ -29,21 +27,19 @@ namespace Tutgetch
 
         private void ControlPanel_MouseDown(object sender, MouseEventArgs e)
         {
-            CP_Move = 1;
-            MX = e.X;
-            MY = e.Y;
+            MoveCP = 1;
+            MapX = e.X;
+            MapY = e.Y;
         }
-
         private void ControlPanel_MouseUp(object sender, MouseEventArgs e)
         {
-            CP_Move = 0;
+            MoveCP = 0;
         }
-
         private void ControlPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            if (CP_Move == 1)
+            if (MoveCP == 1)
             {
-                SetDesktopLocation(MousePosition.X - MX, MousePosition.Y - MY);
+                SetDesktopLocation(MousePosition.X - MapX, MousePosition.Y - MapY);
             }
         }
 
@@ -84,8 +80,7 @@ namespace Tutgetch
             Control.Stop();
             Time.Stop();
             Hide();
-            Win win = new Win();
-            win.ShowDialog();
+            new Win().ShowDialog();
         }
 
         private void Reset_Click(object sender, EventArgs e)
@@ -116,9 +111,7 @@ namespace Tutgetch
                 Start.Enabled = false;
                 Dot.Enabled = true;
             }
-
             label_time.Text = "Time: " + yourtime.ToString();
-
         }
 
         private void GamePanel_MouseDown(object sender, MouseEventArgs e)
